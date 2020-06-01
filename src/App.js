@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Header from './components/Header';
 
 function App() {
   return (
-    <h1>React Weather</h1>
+    <Fragment>
+      <Header
+        title='React Weather'
+      />
+    </Fragment>
   );
 }
 
