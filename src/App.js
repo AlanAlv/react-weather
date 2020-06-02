@@ -1,6 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
+import Weather from './components/Weather';
+
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
   });
 
   const [ query, saveQuery ] = useState(false);
+  const [ result, saveResult ] = useState({});
   // Destructure city and country
   const { city, country } = search;
 
@@ -24,7 +27,8 @@ function App() {
         const answer = await fetch(url);
         const result = await answer.json();
   
-        console.log(result);
+        saveResult(result);
+        saveQuery(false);
       }
     } 
     callAPI();
@@ -49,7 +53,9 @@ function App() {
               />
             </div>
             <div className="col m6 s12">
-              2
+              <Weather
+                result={result}
+              />
             </div>
           </div>
         </div>
