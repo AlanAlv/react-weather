@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Error from './Error';
+import PropTypes from 'prop-types';
 
 const Form = ({search, saveSearch, saveQuery}) => {
 
@@ -76,5 +77,10 @@ const Form = ({search, saveSearch, saveQuery}) => {
         </form>
     );
 }
- 
+
+Form.propTypes = {
+    search: PropTypes.object.isRequired,
+    saveSearch: PropTypes.func.isRequired,
+    saveQuery: PropTypes.func.isRequired
+}
 export default Form;

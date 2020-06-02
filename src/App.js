@@ -41,6 +41,7 @@ function App() {
       }
     } 
     callAPI();
+    // eslint-disable-next-line
   }, [query]);
 
   let component;
