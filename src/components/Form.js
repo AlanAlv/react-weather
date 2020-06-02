@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 
-const Form = () => {
+const Form = ({search, saveSearch, saveQuery}) => {
 
-    // Search state
-    const [ search, saveSearch ] = useState({
-        city: '',
-        country: ''
-    });
     const [ error, saveError ] = useState(false);
 
     // Destructure city and country
@@ -32,6 +27,8 @@ const Form = () => {
         }
 
         saveError(false);
+
+        saveQuery(true);
     }
 
     return (  
@@ -75,11 +72,12 @@ const Form = () => {
                 <label htmlFor="country">Country: </label>
             </div>
             <div className="input-field col s12">
-                <input 
+                <button 
                     type="submit" 
-                    value="Search Weather"
                     className="waves-effect waves-light btn-large btn-block yellow accent-4"
-                />
+                >
+                    Search Weather
+                </button>
             </div>
         </form>
     );
